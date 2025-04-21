@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import EmailSection from "./_components/EmailSection";
 import Label from "./_components/Label";
 import Table from "./_components/Table";
+import { useEmailContext } from "./_components/UserContext";
 
 export default function EmailsPage() {
   const [emails, setEmails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { selectedEmails } = useEmailContext();
 
   useEffect(() => {
     const fetchEmails = async () => {
@@ -31,8 +34,7 @@ export default function EmailsPage() {
     };
 
     fetchEmails();
-  }, []);
-  //moze se izbrisati dependency array da bi radilo kako treba, ali nije najprakticnije
+  }, [selectedEmails]);
 
   if (loading) {
     return <div className="p-4">Loading emails...</div>;
