@@ -45,7 +45,7 @@ export default function EmailsPage() {
   return (
     <div className="p-4">
       <EmailSection data={emails} />
-      <Label>Most Frequently Sent Emails</Label>
+      <Label>Most Frequently Send Emails</Label>
       <Table data={emails} />
     </div>
   );
